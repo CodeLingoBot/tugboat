@@ -59,7 +59,7 @@ func NewDeployOptsFromEvent(e events.Deployment) DeployOpts {
 	}
 }
 
-// NewDeployOptsFromWebhook instantiates a new DeployOpts instance based on the
+// NewDeployOptsFromReader instantiates a new DeployOpts instance based on the
 // values inside a `deployment` event webhook payload.
 func NewDeployOptsFromReader(r io.Reader) (DeployOpts, error) {
 	var e events.Deployment

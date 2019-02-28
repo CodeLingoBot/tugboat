@@ -561,7 +561,7 @@ func (s *Service) AppSetupCreate(o struct {
 	return &appSetup, s.Post(&appSetup, fmt.Sprintf("/app-setups"), o)
 }
 
-// Get the status of an app setup.
+// AppSetupInfo gets the status of an app setup.
 func (s *Service) AppSetupInfo(appSetupIdentity string) (*AppSetup, error) {
 	var appSetup AppSetup
 	return &appSetup, s.Get(&appSetup, fmt.Sprintf("/app-setups/%v", appSetupIdentity), nil)
@@ -748,7 +748,7 @@ func (s *Service) CollaboratorList(appIdentity string, lr *ListRange) ([]*Collab
 // provided to an app on Heroku.
 type ConfigVar map[string]string
 
-// Get config-vars for app.
+// ConfigVarInfo gets config-vars for app.
 func (s *Service) ConfigVarInfo(appIdentity string) (map[string]string, error) {
 	var configVar ConfigVar
 	return configVar, s.Get(&configVar, fmt.Sprintf("/apps/%v/config-vars", appIdentity), nil)
@@ -1472,7 +1472,7 @@ func (s *Service) OrganizationMemberCreateOrUpdate(organizationIdentity string, 
 	return &organizationMember, s.Put(&organizationMember, fmt.Sprintf("/organizations/%v/members", organizationIdentity), o)
 }
 
-// Remove a member from the organization.
+// OrganizationMemberDelete removes a member from the organization.
 func (s *Service) OrganizationMemberDelete(organizationIdentity string, organizationMemberIdentity string) error {
 	return s.Delete(fmt.Sprintf("/organizations/%v/members/%v", organizationIdentity, organizationMemberIdentity))
 }
